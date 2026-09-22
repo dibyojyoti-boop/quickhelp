@@ -7,393 +7,391 @@
 <title>QuickHelp</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-:root{
-    --bg:#08090b;
-    --card:#111317;
-    --card2:#17191e;
-    --border:#252830;
-    --text:#f5f5f5;
-    --muted:#9297a3;
-    --green:#35d07f;
-    --yellow:#f4c95d;
-    --red:#ff5c68;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    min-height:100vh;
+body {
+    font-family: Arial, sans-serif;
+    background: #090b0f;
+    color: #f5f5f5;
+    min-height: 100vh;
 }
 
-button,input,textarea{
-    font:inherit;
+button,
+input,
+textarea {
+    font: inherit;
 }
 
-button{
-    cursor:pointer;
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    background: rgba(9, 11, 15, 0.92);
+    border-bottom: 1px solid #20242b;
+    backdrop-filter: blur(14px);
 }
 
-.app{
-    width:100%;
-    max-width:1100px;
-    margin:auto;
-    padding:18px;
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
-/* HEADER */
-
-.header{
-    height:64px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 18px;
-    background:rgba(17,19,23,.9);
-    border:1px solid var(--border);
-    border-radius:18px;
-    position:sticky;
-    top:12px;
-    z-index:10;
-    backdrop-filter:blur(16px);
+.logo span {
+    color: #72e6a4;
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:19px;
-    font-weight:800;
+.nav {
+    display: flex;
+    gap: 18px;
 }
 
-.logoIcon{
-    width:36px;
-    height:36px;
-    border-radius:11px;
-    display:grid;
-    place-items:center;
-    background:linear-gradient(135deg,#35d07f,#168a52);
+.nav button {
+    border: 0;
+    background: none;
+    color: #a9afb9;
+    cursor: pointer;
+    font-size: 13px;
 }
 
-.headerRight{
-    display:flex;
-    gap:8px;
+.nav button:hover {
+    color: white;
 }
 
-.headerBtn{
-    background:#1b1e24;
-    border:1px solid var(--border);
-    color:#fff;
-    padding:9px 13px;
-    border-radius:10px;
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 22px;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(78, 214, 143, 0.13), transparent 35%),
+        #090b0f;
 }
 
-/* HERO */
-
-.hero{
-    padding:75px 20px 55px;
-    text-align:center;
+.hero-content {
+    max-width: 650px;
 }
 
-.badge{
-    display:inline-block;
-    padding:7px 12px;
-    border:1px solid #294634;
-    background:#0e1b14;
-    color:var(--green);
-    border-radius:999px;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.7px;
+.badge {
+    display: inline-block;
+    padding: 8px 13px;
+    border-radius: 999px;
+    border: 1px solid #28302c;
+    color: #72e6a4;
+    background: #101612;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-.hero h1{
-    margin-top:20px;
-    font-size:clamp(38px,8vw,72px);
-    line-height:1;
-    letter-spacing:-3px;
+.hero h1 {
+    margin-top: 22px;
+    font-size: clamp(42px, 10vw, 76px);
+    line-height: 0.95;
+    letter-spacing: -3px;
 }
 
-.hero p{
-    max-width:600px;
-    margin:20px auto 0;
-    color:var(--muted);
-    line-height:1.7;
-    font-size:15px;
+.hero h1 span {
+    color: #72e6a4;
 }
 
-.heroActions{
-    margin-top:28px;
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
+.hero p {
+    margin: 22px auto 0;
+    max-width: 520px;
+    color: #9299a5;
+    line-height: 1.7;
+    font-size: 15px;
 }
 
-.primary{
-    border:0;
-    background:var(--green);
-    color:#06100a;
-    font-weight:800;
-    padding:13px 20px;
-    border-radius:12px;
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+    flex-wrap: wrap;
 }
 
-.secondary{
-    border:1px solid var(--border);
-    background:#14161a;
-    color:#fff;
-    padding:13px 20px;
-    border-radius:12px;
+.btn {
+    border: 0;
+    padding: 13px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.2s;
 }
 
-/* SECTION */
-
-.section{
-    margin-top:20px;
+.btn-primary {
+    background: #72e6a4;
+    color: #07100b;
 }
 
-.sectionTitle{
-    margin-bottom:15px;
+.btn-primary:hover {
+    transform: translateY(-2px);
 }
 
-.sectionTitle h2{
-    font-size:24px;
+.btn-secondary {
+    background: #171a20;
+    color: white;
+    border: 1px solid #292e37;
 }
 
-.sectionTitle p{
-    color:var(--muted);
-    font-size:13px;
-    margin-top:4px;
+.btn-secondary:hover {
+    background: #20242c;
 }
 
-/* DASHBOARD */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
+.section {
+    padding: 70px 20px;
+    max-width: 1050px;
+    margin: auto;
 }
 
-.stat{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:18px;
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 8px;
 }
 
-.statLabel{
-    color:var(--muted);
-    font-size:12px;
+.section-subtitle {
+    text-align: center;
+    color: #777f8c;
+    font-size: 14px;
+    margin-bottom: 32px;
 }
 
-.statValue{
-    margin-top:8px;
-    font-size:25px;
-    font-weight:800;
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
 }
 
-.green{
-    color:var(--green);
+.stat {
+    background: #111419;
+    border: 1px solid #222730;
+    border-radius: 18px;
+    padding: 22px;
 }
 
-.yellow{
-    color:var(--yellow);
+.stat-label {
+    color: #777f8c;
+    font-size: 12px;
 }
 
-.red{
-    color:var(--red);
+.stat-value {
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: 800;
 }
 
-/* RECORDS */
-
-.records{
-    display:grid;
-    gap:10px;
+.green {
+    color: #72e6a4;
 }
 
-.record{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:17px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
+.yellow {
+    color: #f1ca67;
 }
 
-.recordLeft{
-    display:flex;
-    align-items:center;
-    gap:13px;
+.red {
+    color: #ff6b6b;
 }
 
-.avatar{
-    width:42px;
-    height:42px;
-    border-radius:13px;
-    display:grid;
-    place-items:center;
-    background:#20242c;
-    font-weight:800;
+.records {
+    margin-top: 35px;
+    display: grid;
+    gap: 12px;
 }
 
-.name{
-    font-weight:700;
+.record {
+    background: #111419;
+    border: 1px solid #222730;
+    border-radius: 17px;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
 }
 
-.meta{
-    color:var(--muted);
-    font-size:12px;
-    margin-top:4px;
+.record-name {
+    font-weight: 700;
 }
 
-.amount{
-    font-size:17px;
-    font-weight:800;
-    text-align:right;
+.record-info {
+    margin-top: 5px;
+    color: #777f8c;
+    font-size: 12px;
 }
 
-.status{
-    margin-top:5px;
-    font-size:11px;
-    font-weight:700;
+.status {
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
 }
 
-/* REQUEST */
-
-.formCard{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:22px;
+.status.paid {
+    background: #10251a;
+    color: #72e6a4;
 }
 
-.formGrid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
+.status.due {
+    background: #28230f;
+    color: #f1ca67;
 }
 
-.field{
-    display:flex;
-    flex-direction:column;
-    gap:7px;
+.status.overdue {
+    background: #2a1111;
+    color: #ff6b6b;
 }
 
-.field.full{
-    grid-column:1/-1;
+.footer {
+    padding: 35px 20px;
+    text-align: center;
+    color: #555c67;
+    border-top: 1px solid #20242b;
+    font-size: 12px;
 }
 
-.field label{
-    color:#b9bdc7;
-    font-size:12px;
+/* Modal */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(8px);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 460px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #111419;
+    border: 1px solid #292e37;
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 25px 80px rgba(0,0,0,.5);
+}
+
+.modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.modal-head h2 {
+    font-size: 22px;
+}
+
+.close {
+    border: 0;
+    background: #1b1f26;
+    color: #aaa;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 7px;
+    color: #9ca3ae;
+    font-size: 12px;
 }
 
 .field input,
-.field textarea{
-    width:100%;
-    background:#0b0d10;
-    color:#fff;
-    border:1px solid var(--border);
-    outline:none;
-    border-radius:11px;
-    padding:12px 13px;
-}
-
-.field textarea{
-    min-height:90px;
-    resize:vertical;
+.field textarea {
+    width: 100%;
+    border: 1px solid #292e37;
+    background: #0b0d11;
+    color: white;
+    border-radius: 12px;
+    padding: 13px;
+    outline: none;
 }
 
 .field input:focus,
-.field textarea:focus{
-    border-color:#397e59;
+.field textarea:focus {
+    border-color: #72e6a4;
 }
 
-.agreement{
-    margin-top:15px;
-    display:flex;
-    gap:9px;
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.5;
+.field textarea {
+    min-height: 85px;
+    resize: vertical;
 }
 
-.submit{
-    margin-top:18px;
-    width:100%;
+.checkbox {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+    color: #858d99;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 16px 0;
 }
 
-/* EMPTY */
-
-.empty{
-    padding:30px;
-    text-align:center;
-    color:var(--muted);
-    border:1px dashed var(--border);
-    border-radius:16px;
+.submit {
+    width: 100%;
 }
 
-/* FOOTER */
-
-.footer{
-    text-align:center;
-    color:#626773;
-    font-size:11px;
-    padding:45px 10px 25px;
+/* Prevent background movement while modal is open */
+body.modal-open {
+    overflow: hidden;
 }
 
-/* MOBILE */
+@media (max-width: 700px) {
 
-@media(max-width:700px){
-
-    .app{
-        padding:10px;
+    .header {
+        padding: 0 15px;
     }
 
-    .header{
-        top:8px;
+    .nav {
+        gap: 10px;
     }
 
-    .headerBtn{
-        padding:8px 10px;
-        font-size:12px;
+    .nav button {
+        font-size: 11px;
     }
 
-    .hero{
-        padding:65px 10px 40px;
+    .dashboard {
+        grid-template-columns: 1fr;
     }
 
-    .hero h1{
-        letter-spacing:-2px;
+    .record {
+        align-items: flex-start;
     }
 
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .formGrid{
-        grid-template-columns:1fr;
-    }
-
-    .field.full{
-        grid-column:auto;
-    }
-
-    .record{
-        align-items:flex-start;
-    }
-
-    .recordRight{
-        min-width:80px;
+    .hero {
+        min-height: 520px;
     }
 }
 </style>
@@ -401,410 +399,377 @@ button{
 
 <body>
 
-<div class="app">
+<header class="header">
 
-    <!-- HEADER -->
+    <div class="logo">
+        Quick<span>Help</span>
+    </div>
 
-    <header class="header">
+    <nav class="nav">
+        <button onclick="goHome()">Home</button>
+        <button onclick="openRequest()">Request</button>
+        <button onclick="goRecords()">Records</button>
+    </nav>
 
-        <div class="logo">
-            <div class="logoIcon">Q</div>
-            <span>QuickHelp</span>
+</header>
+
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            SIMPLE • PRIVATE • CLEAR
         </div>
-
-        <div class="headerRight">
-            <button class="headerBtn" onclick="scrollToSection('request')">
-                Request
-            </button>
-
-            <button class="headerBtn" onclick="scrollToSection('dashboard')">
-                Dashboard
-            </button>
-        </div>
-
-    </header>
-
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <span class="badge">
-            EMERGENCY HELP TRACKER
-        </span>
 
         <h1>
-            Small help.<br>
-            Clear commitments.
+            Help when<br>
+            <span>it matters.</span>
         </h1>
 
         <p>
-            Keep emergency repayment records simple, transparent and organized.
-            Set a clear amount, due date and repayment status.
+            A simple way to keep emergency-help commitments
+            organized with clear dates, records and reminders.
         </p>
 
-        <div class="heroActions">
+        <div class="actions">
 
             <button
-                class="primary"
-                onclick="scrollToSection('request')">
+                class="btn btn-primary"
+                onclick="openRequest()">
                 Request Help
             </button>
 
             <button
-                class="secondary"
-                onclick="scrollToSection('dashboard')">
-                View Dashboard
+                class="btn btn-secondary"
+                onclick="goRecords()">
+                View Records
             </button>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- DASHBOARD -->
+<section class="section" id="records">
 
-    <section class="section" id="dashboard">
+    <h2 class="section-title">
+        Repayment Overview
+    </h2>
 
-        <div class="sectionTitle">
-            <h2>Lender Dashboard</h2>
-            <p>Your private repayment overview</p>
+    <p class="section-subtitle">
+        Demo dashboard
+    </p>
+
+    <div class="dashboard">
+
+        <div class="stat">
+            <div class="stat-label">Paid</div>
+            <div class="stat-value green">3</div>
         </div>
 
-        <div class="stats">
-
-            <div class="stat">
-                <div class="statLabel">
-                    Total
-                </div>
-                <div class="statValue">
-                    ₹4,500
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="statLabel">
-                    Paid
-                </div>
-                <div class="statValue green">
-                    3
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="statLabel">
-                    Due
-                </div>
-                <div class="statValue yellow">
-                    1
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="statLabel">
-                    Overdue
-                </div>
-                <div class="statValue red">
-                    1
-                </div>
-            </div>
-
+        <div class="stat">
+            <div class="stat-label">Due</div>
+            <div class="stat-value yellow">1</div>
         </div>
 
+        <div class="stat">
+            <div class="stat-label">Overdue</div>
+            <div class="stat-value red">1</div>
+        </div>
 
-        <!-- PAID -->
+    </div>
 
-        <div class="section">
 
-            <div class="sectionTitle">
-                <h2 class="green">✓ Paid</h2>
-                <p>Repayments confirmed</p>
+    <div class="records">
+
+        <div class="record">
+
+            <div>
+                <div class="record-name">
+                    Rahul
+                </div>
+
+                <div class="record-info">
+                    Due: 28 September
+                </div>
             </div>
 
-            <div class="records">
-
-                <div class="record">
-
-                    <div class="recordLeft">
-
-                        <div class="avatar">
-                            R
-                        </div>
-
-                        <div>
-                            <div class="name">
-                                Rahul
-                            </div>
-
-                            <div class="meta">
-                                Paid • 28 September
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="recordRight">
-
-                        <div class="amount">
-                            ₹600
-                        </div>
-
-                        <div class="status green">
-                            ✓ PAID
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="record">
-
-                    <div class="recordLeft">
-
-                        <div class="avatar">
-                            A
-                        </div>
-
-                        <div>
-                            <div class="name">
-                                Aman
-                            </div>
-
-                            <div class="meta">
-                                Paid • 02 October
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="recordRight">
-
-                        <div class="amount">
-                            ₹1,000
-                        </div>
-
-                        <div class="status green">
-                            ✓ PAID
-                        </div>
-
-                    </div>
-
-                </div>
-
+            <div class="status paid">
+                ✓ PAID
             </div>
 
         </div>
 
 
-        <!-- DUE -->
+        <div class="record">
 
-        <div class="section">
-
-            <div class="sectionTitle">
-                <h2 class="yellow">○ Payment Due</h2>
-                <p>Upcoming repayments</p>
-            </div>
-
-            <div class="records">
-
-                <div class="record">
-
-                    <div class="recordLeft">
-
-                        <div class="avatar">
-                            R
-                        </div>
-
-                        <div>
-                            <div class="name">
-                                Rohan
-                            </div>
-
-                            <div class="meta">
-                                Due • 30 September
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="recordRight">
-
-                        <div class="amount">
-                            ₹750
-                        </div>
-
-                        <div class="status yellow">
-                            DUE
-                        </div>
-
-                    </div>
-
+            <div>
+                <div class="record-name">
+                    Aman
                 </div>
 
+                <div class="record-info">
+                    Due: 30 September
+                </div>
+            </div>
+
+            <div class="status due">
+                DUE
             </div>
 
         </div>
 
 
-        <!-- OVERDUE -->
+        <div class="record">
 
-        <div class="section">
-
-            <div class="sectionTitle">
-                <h2 class="red">! Overdue</h2>
-                <p>Repayment date has passed</p>
-            </div>
-
-            <div class="records">
-
-                <div class="record">
-
-                    <div class="recordLeft">
-
-                        <div class="avatar">
-                            A
-                        </div>
-
-                        <div>
-                            <div class="name">
-                                Arjun
-                            </div>
-
-                            <div class="meta">
-                                Due • 25 September
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="recordRight">
-
-                        <div class="amount">
-                            ₹600
-                        </div>
-
-                        <div class="status red">
-                            3 DAYS OVERDUE
-                        </div>
-
-                    </div>
-
+            <div>
+                <div class="record-name">
+                    Rohan
                 </div>
 
+                <div class="record-info">
+                    Due: 24 September
+                </div>
+            </div>
+
+            <div class="status overdue">
+                OVERDUE
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
+
+</main>
 
 
-    <!-- REQUEST -->
+<footer class="footer">
+    QuickHelp • Demo Project
+</footer>
 
-    <section class="section" id="request">
 
-        <div class="sectionTitle">
-            <h2>Request Emergency Help</h2>
-            <p>Create a clear repayment record.</p>
-        </div>
+<!-- Request Modal -->
 
-        <div class="formCard">
+<div
+    class="modal"
+    id="requestModal"
+    onclick="closeOutside(event)">
 
-            <div class="formGrid">
+    <div
+        class="modal-card"
+        onclick="event.stopPropagation()">
 
-                <div class="field">
-                    <label>Amount</label>
-                    <input
-                        type="number"
-                        placeholder="₹ 500">
-                </div>
+        <div class="modal-head">
 
-                <div class="field">
-                    <label>Agreed repayment amount</label>
-                    <input
-                        type="number"
-                        placeholder="₹ 600">
-                </div>
-
-                <div class="field">
-                    <label>Repayment date</label>
-                    <input type="date">
-                </div>
-
-                <div class="field">
-                    <label>Your name</label>
-                    <input
-                        type="text"
-                        placeholder="Full name">
-                </div>
-
-                <div class="field">
-                    <label>Contact number</label>
-                    <input
-                        type="tel"
-                        placeholder="Phone number">
-                </div>
-
-                <div class="field full">
-                    <label>Optional note</label>
-                    <textarea
-                        placeholder="Add a short note"></textarea>
-                </div>
-
-            </div>
-
-            <label class="agreement">
-
-                <input type="checkbox">
-
-                <span>
-                    I confirm that the information provided is correct
-                    and I agree to the repayment details shown above.
-                </span>
-
-            </label>
+            <h2>
+                Request Help
+            </h2>
 
             <button
-                class="primary submit"
-                onclick="submitDemo()">
-                Submit Request
+                class="close"
+                onclick="closeRequest()">
+                ×
             </button>
 
         </div>
 
-    </section>
+
+        <div class="field">
+
+            <label>
+                Your name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name">
+
+        </div>
 
 
-    <footer class="footer">
-        QuickHelp • Private repayment tracking
-    </footer>
+        <div class="field">
+
+            <label>
+                Amount
+            </label>
+
+            <input
+                type="number"
+                id="amount"
+                placeholder="Enter amount">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Repayment date
+            </label>
+
+            <input
+                type="date"
+                id="dueDate">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Contact number
+            </label>
+
+            <input
+                type="tel"
+                id="contact"
+                placeholder="Enter contact number">
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Note
+            </label>
+
+            <textarea
+                id="note"
+                placeholder="Optional note"></textarea>
+
+        </div>
+
+
+        <label class="checkbox">
+
+            <input
+                type="checkbox"
+                id="agreement">
+
+            <span>
+                I confirm that the information provided is correct
+                and understand that this is a demo repayment tracker.
+            </span>
+
+        </label>
+
+
+        <button
+            class="btn btn-primary submit"
+            onclick="submitRequest()">
+
+            Submit Request
+
+        </button>
+
+    </div>
 
 </div>
 
 
 <script>
 
-function scrollToSection(id){
+function openRequest() {
 
-    const section = document.getElementById(id);
+    const modal =
+        document.getElementById("requestModal");
 
-    if(section){
+    modal.classList.add("active");
 
-        section.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
+    document.body.classList.add("modal-open");
+}
 
+
+function closeRequest() {
+
+    const modal =
+        document.getElementById("requestModal");
+
+    modal.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+}
+
+
+function closeOutside(event) {
+
+    if (
+        event.target ===
+        document.getElementById("requestModal")
+    ) {
+        closeRequest();
     }
 }
 
 
-function submitDemo(){
+function goHome() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function goRecords() {
+
+    document
+        .getElementById("records")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+}
+
+
+function submitRequest() {
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const amount =
+        document.getElementById("amount").value.trim();
+
+    const dueDate =
+        document.getElementById("dueDate").value;
+
+    const contact =
+        document.getElementById("contact").value.trim();
+
+    const agreement =
+        document.getElementById("agreement").checked;
+
+
+    if (!name || !amount || !dueDate || !contact) {
+
+        alert("Please fill all required fields.");
+
+        return;
+    }
+
+
+    if (!agreement) {
+
+        alert("Please accept the agreement.");
+
+        return;
+    }
+
 
     alert(
-        "Demo request created successfully.\n\n" +
-        "Real-money processing is not connected yet."
+        "Demo request submitted successfully!"
     );
+
+
+    closeRequest();
 
 }
 
